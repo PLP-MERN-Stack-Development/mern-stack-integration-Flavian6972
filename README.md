@@ -1,15 +1,22 @@
-# MERN Stack Integration Assignment
+# MERN Blog
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+## Project Overview
+**MERN Blog** is a full-stack blogging application built with **MongoDB**, **Express.js**, **React**, and **Node.js**. The application allows users to create, read, update, and delete blog posts. It also includes features like **searching, filtering by category, and pagination** for a smooth user experience.  
 
-## Assignment Overview
+The frontend uses React with Tailwind CSS for a responsive and attractive UI, while the backend is built with Express.js and MongoDB.
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+---
+
+## Features Implemented
+- **CRUD operations for posts** (Create, Read, Update, Delete)
+- **Search functionality**: Search posts by title or author
+- **Filter by category**: Display posts filtered by selected category
+- **Pagination**: Display 3 posts per page with navigation controls
+- Responsive card layout for posts  
+- Display of author name and creation date  
+
+---
+
 
 ## Project Structure
 
@@ -37,42 +44,84 @@ mern-blog/
 └── README.md               # Project documentation
 ```
 
-## Getting Started
+## Project Setup
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+### Backend
+1. Navigate to the server directory:  
+   ```bash
+   cd server 
 
-## Files Included
+2. Install dependencies:
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+npm install
 
-## Requirements
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+3. Create a .env file in the server root with your MongoDB URI and port (example):
 
-## Submission
+MONGO_URI=your_mongodb_connection_string
+PORT=5000
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+4. Start the server:
 
-## Resources
+npm run dev
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+
+npm run dev uses nodemon to auto-restart the server on changes.
+
+### Frontend
+
+1. Navigate to the client directory:
+
+cd client
+
+
+2. Install dependencies:
+
+npm install
+
+
+3. Start the React development server:
+
+npm run dev
+
+
+4. Open http://localhost:5173
+ in your browser.
+
+### API Documentation
+## Posts
+# Method	  Endpoint	       Description
+GET	       /api/posts	       Get all posts
+GET	       /api/posts/:id	   Get single post by ID
+POST	     /api/posts	       Create a new post
+PUT	       /api/posts/:id	   Update a post
+DELETE	   /api/posts/:id	   Delete a post
+
+# Sample POST payload:
+
+{
+  "title": "My New Post",
+  "body": "This is the content of the post.",
+  "author": "Jane Doe",
+  "category": "Lifestyle",
+  "published": true,
+  "featuredImage": "default-post.jpg"
+}
+
+## Categories
+# Method	  Endpoint	         Description
+GET	        /api/categories	   Get all categories
+POST	      /api/categories	   Create a new category
+
+# Sample POST payload:
+
+{
+  "name": "Technology",
+  "description": "Posts about tech"
+}
+
+### Screenshots 
+![Home Page Screenshot](./Screenshots/20251109_001957.jpg)
+![Single Post Screenshot](./Screenshots/20251109_002121.jpg)
+![Pagination Screenshot](./Screenshots/20251109_002048.jpg)
