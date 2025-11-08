@@ -10,7 +10,7 @@ const PostSchema = new mongoose.Schema(
       trim: true,
       maxlength: [100, 'Title cannot be more than 100 characters'],
     },
-    content: {
+    body: {
       type: String,
       required: [true, 'Please provide content'],
     },
@@ -28,14 +28,15 @@ const PostSchema = new mongoose.Schema(
       maxlength: [200, 'Excerpt cannot be more than 200 characters'],
     },
     author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      type: mongoose.Schema.Types.Mixed,
+      //ref: 'User',
       required: true,
     },
     category: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Category',
-      required: true,
+      type: mongoose.Schema.Types.Mixed,
+      required: false,
+      //ref: 'Category',
+      //required//: true,
     },
     tags: [String],
     isPublished: {
